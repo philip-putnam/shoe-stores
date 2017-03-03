@@ -79,6 +79,28 @@
             $this->assertEquals([], $result);
         }
 
+        function test_find()
+        {
+            //Arrange
+            $name = "Nike Factory";
+            $address = "2650 NE Martin Luther King Jr Blvd";
+            $phone = "503-281-5901";
+            $nike_factory = new Store($name, $address, $phone);
+            $nike_factory->save();
+
+            $name2 = "Payless Shoes";
+            $address2 = "606 SW Alder St";
+            $phone2 = "503-222-4394";
+            $payless = new Store($name2, $address2, $phone2);
+            $payless->save();
+
+            //Act
+            $result = Store::find($payless->getId());
+
+            //Assert
+            $this->assertEquals($payless, $result);
+        }
+
     }
 
 ?>
