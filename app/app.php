@@ -20,8 +20,14 @@
 
     $app->get('/', function() use($app) {
 
-
         return $app['twig']->render('main.html.twig', array('stores' => Store::getAll()));
+    });
+
+    //Add a store from root route and main.html.twig form
+    $app->post('/add-store', function() use($app) {
+        $new_store = new Store($_POST['store_name'], $_POST['store_address'], $_POST['store_phone']);
+        $new_store->save();
+        return $app->redirect('/');
     });
 
 
