@@ -20,19 +20,29 @@
         function test_getName()
         {
             //Arrange
+            $name = 'Puma';
+            $puma = new Brand($name);
 
             //Act
+            $result = $puma->getName();
 
             //Assert
+            $this->assertEquals('Puma', $result);
         }
 
         function test_setName()
         {
             //Arrange
+            $name = 'Puma';
+            $new_name = 'Nike';
+            $puma = new Brand($name);
 
             //Act
+            $puma->setName($new_name);
+            $result = $puma->getName();
 
             //Assert
+            $this->assertEquals('Nike', $result);
         }
     }
 
