@@ -15,12 +15,22 @@
         <button class='btn btn-primary' type='submit'>Add store</button>
     </form>
     {% if stores is not empty %}
-    <h3>Local shoe stores:</h3>
-        <ul>
-            {% for store in stores %}
-                <li>{{ store.getName }}</li>
-
-            {% endfor %}
-        </ul>
+        <h3>Local shoe stores:</h3>
+            <ul>
+                {% for store in stores %}
+                    <div class='row'>
+                        <div class='col-md-2'>
+                            <li>{{ store.getName }}</li>
+                        </div>
+                        <div class='col-md-2'>
+                            <form action='/delete-store' method='post'>
+                                <input type='hidden' name='_method' value='delete'>
+                                <input type='hidden' name='store_id' value='{{ store.getId }}'>
+                                <button type='submit'>delete</button>
+                            </form>
+                        </div>
+                    </div>
+                {% endfor %}
+            </ul>
     {% endif %}
 {% endblock %}
