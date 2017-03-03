@@ -54,6 +54,17 @@
         return $app['twig']->render('store.html.twig', array('store' => Store::find($id), 'brands' => Brand::getAll()));
     });
 
+    //Update store information form page
+    $app->get('/store/{id}/update-form', function($id) use($app) {
+        return $app['twig']->render('update-form.html.twig', array('store' => Store::find($id)));
+    });
+
+    //Updates store information: name, addres, phone number
+    $app->patch('/store/{id}/update', function($id) use($app) {
+
+        return $app->redirect('/store/' . $id);
+    });
+
     //Add shoe brand to a specific store
     $app->post('/store/add-brand/{id}', function($id) use($app) {
         $store = Store::find($id);

@@ -126,6 +126,29 @@
             $this->assertEquals([$payless], $result);
         }
 
+        function test_update()
+        {
+            //Arrange
+            $name = "Nike Factory";
+            $address = "2650 NE Martin Luther King Jr Blvd";
+            $phone = "503-281-5901";
+            $nike_factory = new Store($name, $address, $phone);
+            $nike_factory->save();
+
+            $new_name = 'Nike City';
+            $new_address = '8889 Port Number Whoa';
+            $new_phone = '1-800-838-8439';
+            $id = $nike_factory->getId();
+            $new_nike_store = new Store($new_name, $new_address, $new_phone, $id);
+
+            //Act
+            $nike_factory->update($new_name, $new_address, $new_phone);
+            $result = Store::find($nike_factory->getId());
+
+            //Assert
+            $this->assertEquals($new_nike_store, $result);
+        }
+
         function test_addBrand()
         {
             //Arrange

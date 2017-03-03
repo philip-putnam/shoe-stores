@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block update %}
+
+    <form action='store/{{ store.getId }}/update/' method='post'>
+        <input type='hidden' name='_method' value='patch'>
+
+        <label for='store_name'>Name: </label>
+        <input type='text' name='store_name'>
+
+        <label for='store_address'>Address: </label>
+        <input type='text' name='store_address'>
+
+        <label for='store_phone'>Phone number: </label>
+        <input type='text' name='store_phone'>
+
+        <button type='submit'>Update store</button>
+    </form>
+
+{% endblock %}

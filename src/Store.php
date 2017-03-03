@@ -61,6 +61,26 @@
             $GLOBALS['DB']->exec("DELETE FROM stores_brands WHERE id = {$this->getId()};");
         }
 
+        function update($new_name, $new_address, $new_phone)
+        {
+            if ($new_name === '')
+            {
+                $new_name = $this->getName();
+            }
+            if ($new_address === '')
+            {
+                $new_address = $this->getAddress();
+            }
+            if ($new_phone === '')
+            {
+                $new_phone = $this->getPhone();
+            }
+            $GLOBALS['DB']->exec("UPDATE stores SET name = '{$new_name}', address = '{$new_address}', phone = '{$new_phone}' WHERE id = {$this->getId()};");
+            $this->setName($new_name);
+            $this->setAddress($new_address);
+            $this->setPhone($new_phone);
+        }
+
         function addBrand($new_brand)
         {
             $GLOBALS['DB']->exec("INSERT INTO stores_brands (store_id, brand_id) VALUES ({$this->getId()}, {$new_brand->getId()});");

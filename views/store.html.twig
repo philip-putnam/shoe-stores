@@ -1,5 +1,11 @@
 {% extends 'base.html.twig' %}
 
+{% block update %}
+
+    <a href='/store/{{ store.getId }}/update-form'><button type='button'>Edit info</button></a>
+
+{% endblock %}
+
 {% block content %}
     <h2>{{ store.getName }}</h2>
     <h3>{{ store.getAddress }}</h3>
