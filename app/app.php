@@ -51,9 +51,24 @@
 
     //Add shoe brand to a specific store
     $app->post('/store/add-brand/{id}', function($id) use($app) {
-        $new_brand = new Brand($_POST['brand_name']);
-        $new_brand->save();
-        $new_brand->addStore($id);
+        $store = Store::find($id);
+        $store_brands = $store->getBrands();
+        $new_brand_name = strtolower($_POST['brand_name']);
+        $duplicate = false;
+        foreach ($store_brands as $brand)
+        {
+            $name = strtolower($brand->getName());
+            if ($new_brand_name == $name)
+            {
+                $duplicate = true;
+            }
+        }
+        if (!$duplicate)
+        {
+            $new_brand = new Brand($_POST['brand_name']);
+            $new_brand->save();
+            $new_brand->addStore($id);
+        }
         return $app->redirect('/store/' . $id);
     });
 
@@ -63,7 +78,6 @@
         $store->removeBrand($_POST['brand_id']);
         return $app->redirect('/store/' . $id);
     });
-
 
     return $app;
 ?>
