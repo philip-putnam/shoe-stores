@@ -141,8 +141,8 @@
             $payless->save();
 
             //Act
-            $nike->addStore($nike_factory);
-            $nike->addStore($payless);
+            $nike->addStore($nike_factory->getId());
+            $nike->addStore($payless->getId());
             $result = $nike->getStores();
 
             //Assert
@@ -175,9 +175,9 @@
             $footwise->save();
 
             //Act
-            $nike->addStore($nike_factory);
-            $nike->addStore($payless);
-            $nike->addStore($footwise);
+            $nike->addStore($nike_factory->getId());
+            $nike->addStore($payless->getId());
+            $nike->addStore($footwise->getId());
             $result = $nike->getStores();
 
             //Assert

@@ -31,9 +31,9 @@
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
-        function addStore($new_store)
+        function addStore($store_id)
         {
-            $GLOBALS['DB']->exec("INSERT INTO stores_brands (brand_id, store_id) VALUES ({$this->getId()}, {$new_store->getId()});");
+            $GLOBALS['DB']->exec("INSERT INTO stores_brands (brand_id, store_id) VALUES ({$this->getId()}, {$store_id});");
         }
 
         function getStores()

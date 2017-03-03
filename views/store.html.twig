@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h2>{{ store.getName }}</h2>
+    <h3>{{ store.getAddress }}</h3>
+    <h3>{{ store.getPhone }}</h3>
+
+    <p>Add a shoe brand to this store:</p>
+    <form action='/store/add-brand/{{ store.getId }}' method='post'>
+        <label for='brand_name'>Name: </label>
+        <input type='text' name='brand_name'>
+
+        <button type='submit' class='btn btn-primary'>Add brand</button>
+    </form>
+    {% if brands is not empty %}
+        OR from the existing list of brands:
+        <form action='/store/add-brand/{{ store.getId }}' method='post'>
+            <select name='brand_name'>
+                <option></option>
+                {% for brand in brands %}
+                    <option value='{{ brand.getName }}'>{{ brand.getName }}</option>
+                {% endfor %}
+            </select>
+
+            <button type='submit' class='btn btn-primary'>Add brand</button>
+        </form>
+    {% endif %}
+    {% if store.getBrands is not empty %}
+        <p>Brands sold at this store:</p>
+        <ul>
+            {% for brand in store.getBrands %}
+                <div class='row'>
+                    <div class='col-md-2'>
+                        <li>{{ brand.getName }}</li>
+                    </div>
+                    <div class='col-md-2'>
+                        <form action='/store/{{ store.getId }}/remove-brand' method='post'>
+                            <input type='hidden' name='_method' value='delete'>
+                            <input type='hidden' name='brand_id' value='{{ brand.getId }}'>
+                            <button type='submit'>Remove</buton>
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+{% endblock %}

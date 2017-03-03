@@ -15,12 +15,12 @@
         <button class='btn btn-primary' type='submit'>Add store</button>
     </form>
     {% if stores is not empty %}
-        <h3>Local shoe stores:</h3>
+        <p>Local shoe stores:</p>
             <ul>
                 {% for store in stores %}
                     <div class='row'>
                         <div class='col-md-2'>
-                            <li>{{ store.getName }}</li>
+                            <li><a href='/store/{{ store.getId }}'>{{ store.getName }}</a></li>
                         </div>
                         <div class='col-md-2'>
                             <form action='/delete-store' method='post'>

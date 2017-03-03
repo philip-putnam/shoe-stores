@@ -16,13 +16,14 @@
 
     $app = new Silex\Application();
 
+    $app['debug'] = true;
+
     $app->register(new Silex\Provider\TwigServiceProvider(), array('twig.path' => __DIR__.'/../views'));
 
     use Symfony\Component\HttpFoundation\Request;
     Request::enableHttpMethodParameterOverride();
 
     $app->get('/', function() use($app) {
-
         return $app['twig']->render('main.html.twig', array('stores' => Store::getAll()));
     });
 
@@ -41,6 +42,26 @@
         $store = Store::find($_POST['store_id']);
         $store->delete();
         return $app->redirect('/');
+    });
+
+    //Store-specific route
+    $app->get('/store/{id}', function($id) use($app) {
+        return $app['twig']->render('store.html.twig', array('store' => Store::find($id), 'brands' => Brand::getAll()));
+    });
+
+    //Add shoe brand to a specific store
+    $app->post('/store/add-brand/{id}', function($id) use($app) {
+        $new_brand = new Brand($_POST['brand_name']);
+        $new_brand->save();
+        $new_brand->addStore($id);
+        return $app->redirect('/store/' . $id);
+    });
+
+    //Remove a brand from a store, but do not delete the brand from the database
+    $app->delete('/store/{id}/remove-brand', function($id) use($app) {
+        $store = Store::find($id);
+        $store->removeBrand($_POST['brand_id']);
+        return $app->redirect('/store/' . $id);
     });
 
 

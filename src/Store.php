@@ -66,6 +66,11 @@
             $GLOBALS['DB']->exec("INSERT INTO stores_brands (store_id, brand_id) VALUES ({$this->getId()}, {$new_brand->getId()});");
         }
 
+        function removeBrand($brand_id)
+        {
+            $GLOBALS['DB']->exec("DELETE FROM stores_brands WHERE brand_id = {$brand_id};");
+        }
+
         function getBrands()
         {
             $found_brands = $GLOBALS['DB']->query("SELECT brands.* FROM stores JOIN stores_brands ON (stores_brands.store_id = stores.id) JOIN brands ON (stores_brands.brand_id = brands.id) WHERE stores.id = {$this->getId()};");
