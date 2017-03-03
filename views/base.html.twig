@@ -7,10 +7,14 @@
 
     <body>
         <div class='container'>
-            <h2>Get your kicks on!</h2>
-            <a href='/'><button type='button'>Home</button></a>
-            {% block update %}{% endblock %}
+            <div class='well'>
+                <h2>Get your kicks on!</h2>
+                <a href='/'><button type='button'>Home</button></a>
+                {% block update %}{% endblock %}
+            </div>
+            <div class='main'>
             {% block content %}{% endblock %}
+            </div>
         </div>
     </body>
 </html>

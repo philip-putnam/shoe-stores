@@ -1,3 +1,27 @@
 h2, h3 {
     text-align: center;
 }
+
+body {
+    background-image: url('/../img/shoes_background.png');
+    background-repeat: no-repeat;
+    background-color: #394347;
+}
+
+.well {
+    background-color: #394347;
+    border: 2px solid black;
+    opacity: 1.0;
+    color: white;
+}
+
+/*li {
+    font-size: 15px;
+}*/
+
+.main {
+    background-color: #4C5B61;
+    padding: 15px;
+    border-radius: 15px;
+    font-size: 16px;
+}
