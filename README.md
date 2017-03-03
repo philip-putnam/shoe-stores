@@ -64,7 +64,7 @@ OR simply:
 
 | Expected Behavior: application will... | Input | Output |
 | ----------------- | ------------------ | ----- | ------ |
-| display all local shoe stores | user navigates to main page | "Nike Puma Adidas" |
+| display all local shoe stores | user navigates to main page | "Pa's Shoes, Payless, Nike Factory" |
 | display all brands located at store | user navigates to store page | "Nike Adidas" |
 | display all stores carrying specific brand | user navigates to brand page | "Pa's Shoes, Nike Factory" |
 | add store to list of stores | "Joe's Shoe Emporium" | "Pa's Shoes, Nike Factory, Joe's Shoe Emporium" |
