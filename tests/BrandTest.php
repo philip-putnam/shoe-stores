@@ -9,12 +9,14 @@
     $password = 'root';
     $DB = new PDO($server, $username, $password);
 
+    require_once __DIR__.'/../src/Store.php';
     require_once __DIR__.'/../src/Brand.php';
 
     class BrandTest extends PHPUnit_Framework_TestCase
     {
         protected function tearDown()
         {
+            Store::deleteAll();
             Brand::deleteAll();
         }
 

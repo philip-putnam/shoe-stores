@@ -10,12 +10,14 @@
     $DB = new PDO($server, $username, $password);
 
     require_once __DIR__.'/../src/Store.php';
+    require_once __DIR__.'/../src/Brand.php';
 
     class StoreTest extends PHPUnit_Framework_TestCase
     {
         protected function tearDown()
         {
             Store::deleteAll();
+            Brand::deleteAll();
         }
 
         function test_save()
@@ -122,6 +124,67 @@
 
             //Assert
             $this->assertEquals([$payless], $result);
+        }
+
+        function test_addBrand()
+        {
+            //Arrange
+            $name = "Payless Shoes";
+            $address = "606 SW Alder St";
+            $phone = "503-222-4394";
+            $payless = new Store($name, $address, $phone);
+            $payless->save();
+
+            $name = 'Puma';
+            $puma = new Brand($name);
+            $puma->save();
+
+            $name2 = 'Nike';
+            $nike = new Brand($name2);
+            $nike->save();
+
+            $name3 = 'Adidas';
+            $adidas = new Brand($name3);
+            $adidas->save();
+
+            //Act
+            $payless->addBrand($nike);
+            $payless->addBrand($adidas);
+            $result = $payless->getBrands();
+
+            //Assert
+            $this->assertEquals([$nike, $adidas], $result);
+        }
+
+        function test_getBrands()
+        {
+            //Arrange
+            $name = "Payless Shoes";
+            $address = "606 SW Alder St";
+            $phone = "503-222-4394";
+            $payless = new Store($name, $address, $phone);
+            $payless->save();
+
+            $name = 'Puma';
+            $puma = new Brand($name);
+            $puma->save();
+
+            $name2 = 'Nike';
+            $nike = new Brand($name2);
+            $nike->save();
+
+            $name3 = 'Adidas';
+            $adidas = new Brand($name3);
+            $adidas->save();
+
+            //Act
+            $payless->addBrand($nike);
+            $payless->addBrand($adidas);
+            $payless->addBrand($puma);
+            $result = $payless->getBrands();
+
+            //Assert
+            $this->assertEquals([$nike, $adidas, $puma], $result);
         }
 
     }
