@@ -1,1 +1,26 @@
 {% extends 'base.html.twig' %}
+
+{% block content %}
+    <h3>Add a shoe store:</h3>
+    <form action='/add-store' method='post'>
+        <label for='store_name'>Name: </label>
+        <input type='text' name='store_name' required>
+
+        <label for='store_address'>Address: </label>
+        <input type='text' name='store_address' required>
+
+        <label for='store_phone'>Phone number: </label>
+        <input type='text' name='store_phone'>
+
+        <button class='btn btn-primary' type='submit'>Add store</button>
+    </form>
+    {% if stores is not empty %}
+    <h3>Local shoe stores:</h3>
+        <ul>
+            {% for store in stores %}
+                <li>{{ store.getName }}</li>
+
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}
