@@ -16,21 +16,31 @@
     </form>
     {% if stores is not empty %}
         <p>Local shoe stores:</p>
-            <ul>
-                {% for store in stores %}
-                    <div class='row'>
-                        <div class='col-md-2'>
-                            <li><a href='/store/{{ store.getId }}'>{{ store.getName }}</a></li>
-                        </div>
-                        <div class='col-md-2'>
-                            <form action='/delete-store' method='post'>
-                                <input type='hidden' name='_method' value='delete'>
-                                <input type='hidden' name='store_id' value='{{ store.getId }}'>
-                                <button type='submit'>delete</button>
-                            </form>
-                        </div>
-                    </div>
-                {% endfor %}
-            </ul>
+            <div class='row'>
+                <div class='col-md-12'>
+                    <ul>
+                        {% for store in stores %}
+                            <div class='row'>
+                                <div class='col-md-2'>
+                                    <li><a href='/store/{{ store.getId }}'>{{ store.getName }}</a></li>
+                                </div>
+                                <div class='col-md-2'>
+                                    <form action='/delete-store' method='post'>
+                                        <input type='hidden' name='_method' value='delete'>
+                                        <input type='hidden' name='store_id' value='{{ store.getId }}'>
+                                        <button type='submit'>delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </ul>
+                    <p>Brand names:</p>
+                    <ul>
+                        {% for brand in brands %}
+                            <li><a href='/brand/{{ brand.getId }}'>{{ brand.getName }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
     {% endif %}
 {% endblock %}

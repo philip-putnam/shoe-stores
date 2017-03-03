@@ -24,7 +24,7 @@
     Request::enableHttpMethodParameterOverride();
 
     $app->get('/', function() use($app) {
-        return $app['twig']->render('main.html.twig', array('stores' => Store::getAll()));
+        return $app['twig']->render('main.html.twig', array('stores' => Store::getAll(), 'brands' => Brand::getAll()));
     });
 
     //Add a store from root route and main.html.twig form
@@ -44,7 +44,12 @@
         return $app->redirect('/');
     });
 
-    //Store-specific route
+    //Brand specific site displaying shops that carry the specific brand
+    $app->get('/brand/{id}', function($id) use($app) {
+        return $app->render('brand.html.twig', array('brand' => Brand::find($id), 'stores' => Store::getAll()));
+    });
+
+    //Store-specific route displaying current brands offered with ability to add brand
     $app->get('/store/{id}', function($id) use($app) {
         return $app['twig']->render('store.html.twig', array('store' => Store::find($id), 'brands' => Brand::getAll()));
     });
