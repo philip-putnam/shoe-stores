@@ -46,7 +46,7 @@
 
     //Brand specific site displaying shops that carry the specific brand
     $app->get('/brand/{id}', function($id) use($app) {
-        return $app->render('brand.html.twig', array('brand' => Brand::find($id), 'stores' => Store::getAll()));
+        return $app['twig']->render('brand.html.twig', array('brand' => Brand::find($id), 'stores' => Store::getAll()));
     });
 
     //Store-specific route displaying current brands offered with ability to add brand

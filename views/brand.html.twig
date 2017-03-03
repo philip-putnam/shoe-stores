@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    <h2>{{ brand.getName }}</h2>
+
+    <p>Add a shoe store to this brand:</p>
+    {% if brand.getStores is not empty %}
+        <p>Stores that sell this brand:</p>
+        <ul>
+            {% for store in brand.getStores %}
+                <div class='row'>
+                    <div class='col-md-2'>
+                        <li><a href='/store/{{ store.getId }}'>{{ store.getName }}</a></li>
+                    </div>
+                </div>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h4>No stores currently sell this brand!</h4>
+    {% endif %}
+
+{% endblock %}
