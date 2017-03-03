@@ -2,7 +2,7 @@
 
 {% block update %}
 
-    <form action='store/{{ store.getId }}/update/' method='post'>
+    <form action='/store/{{ store.getId }}/update' method='post'>
         <input type='hidden' name='_method' value='patch'>
 
         <label for='store_name'>Name: </label>

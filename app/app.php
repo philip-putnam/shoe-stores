@@ -61,7 +61,8 @@
 
     //Updates store information: name, addres, phone number
     $app->patch('/store/{id}/update', function($id) use($app) {
-
+        $store = Store::find($id);
+        $store->update($_POST['store_name'], $_POST['store_address'], $_POST['store_phone']);
         return $app->redirect('/store/' . $id);
     });
 
