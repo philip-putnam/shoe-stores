@@ -23,23 +23,23 @@ OR simply:
 
 ### Creating MySQL database
 
-* _Open MAMP and begin Apache & MySQL server on your computer_
-* _After cloning project from Github, open terminal and navigate to the top level of the project directory_
-* _in the terminal type:_
-* _> /Applications/MAMP/Library/bin/mysql --host=localhost -uroot -proot_
-* _> CREATE DATABASE shoes;_
-* _> USE shoes;_
-* _> CREATE TABLE shoes (id serial PRIMARY KEY, name VARCHAR (255), brand_id int);_
-* _> CREATE TABLE brands (id serial PRIMARY KEY, name VARCHAR (255));_
-* _> CREATE TABLE stores (id serial PRIMARY KEY, name VARCHAR (255), address VARCHAR (255), phone VARCHAR (255));_
-* _Open Apache server from either MAMP or navigating to localhost:<apache-port#>/MAMP/ , where <apache-port#> is the port number indicated for the Apache port in MAMP Preferences..._
-* _Click phpMyAdmin link, then click on the shoes database on the left of the screen_
-* _Click the 'operations' tab, in 'Copy database to:' type shoes_test and select 'Structure only' then click 'Go'_
+* Open MAMP and begin Apache & MySQL server on your computer
+* After cloning project from Github, open terminal and navigate to the top level of the project directory
+* in the terminal type:
+* \> /Applications/MAMP/Library/bin/mysql --host=localhost -uroot -proot
+* \> CREATE DATABASE shoes;_
+* \> USE shoes;_
+* \> CREATE TABLE shoes (id serial PRIMARY KEY, name VARCHAR (255), brand_id int);_
+* \> CREATE TABLE brands (id serial PRIMARY KEY, name VARCHAR (255));_
+* \> CREATE TABLE stores (id serial PRIMARY KEY, name VARCHAR (255), address VARCHAR (255), phone VARCHAR (255));
+* Open Apache server from either MAMP or navigating to localhost:<apache-port#>/MAMP/ , where <apache-port#> is the port number indicated for the Apache port in MAMP Preferences...
+* Click phpMyAdmin link, then click on the shoes database on the left of the screen
+* Click the 'operations' tab, in 'Copy database to:' type shoes_test and select 'Structure only' then click 'Go'
 
 ## Specifications
 
 | Expected Behavior: application will... | Input | Output |
-| ----------------- | ------------------ | ----- | ------ |
+| -------------------------------------- | ----- | ------ |
 | display all local shoe stores | user navigates to main page | "Pa's Shoes, Payless, Nike Factory" |
 | display all brands located at store | user navigates to store page | "Nike Adidas" |
 | display all stores carrying specific brand | user navigates to brand page | "Pa's Shoes, Nike Factory" |
