@@ -6,44 +6,20 @@
 
 ## Description
 
-_This application will display current shoe stores, then upon user interaction will display the brands of shoe that are available at each store. The user will be able to select a brand to see all stores that are currently selling that brand._
+This application will display current shoe stores, then upon user interaction will display the brands of shoe that are available at each store. The user will be able to select a brand to see all stores that are currently selling that brand.
 
 ## Setup/Installation Requirements
 
 ### Method 1:
-* _Using a web browser or terminal, clone the repository at https://github.com/philip-putnam/shoe-stores __
-* _Navigate to the project directory, at the top level of the project directory in a terminal, type:
-> composer install --prefer-source --no-interaction
+* Using a web browser or terminal, clone the repository at https://github.com/philip-putnam/shoe-stores
+* Navigate to the project directory, at the top level of the project directory in a terminal, type:
+* composer install --prefer-source --no-interaction
 OR simply:
-> composer install_
-* _After composer has finished installation, navigate to the 'web' folder within the project directory using a terminal. Create a document '.htaccess' with the following content:
-
-<IfModule mod_rewrite.c>
-     Options +FollowSymLinks -MultiViews
-     # Turn mod_rewrite on
-     RewriteEngine On
-     RewriteBase /
-
-     ## If the request is for a valid directory
-     RewriteCond %{REQUEST_FILENAME} -d [OR]
-     ## If the request is for a valid file
-     RewriteCond %{REQUEST_FILENAME} -f [OR]
-     ## If the request is for a valid link
-     RewriteCond %{REQUEST_FILENAME} -l
-     ## don't do anything
-     RewriteRule ^ - [L]
-
-     # if requested files exists in /web then forward it there
-     RewriteCond %{DOCUMENT_ROOT}/web/$1 -f
-     RewriteRule ^(.+?)/?$ /web/$1 [L]
-
-     # if requested files doesn't exist in /web then forward it to index.php
-     RewriteCond %{DOCUMENT_ROOT}/web/$1 !-f
-     RewriteRule ^(.+?)/?$ ./index.php [L]
-   </IfModule>_
-* _Begin a web server using MAMP or similar software, indicating the 'web' folder as root_
-* _In a compatible web browser, type in 'localhost:8888' where '8888' is the port number that you have indicated as your Apache port in MAMP or similar software_
-* _Fill in the form on the webpage and hit submit!_
+* composer install_
+* After composer has finished installation, navigate to the 'web' folder within the project directory using a terminal. Create a document '.htaccess' with the text content found in htaccess.txt
+* Begin a web server using MAMP or similar software, indicating the 'web' folder as root
+* In a compatible web browser, type in 'localhost:8888' where '8888' is the port number that you have indicated as your Apache port in MAMP or similar software
+* Fill in the form on the webpage and hit submit!
 
 ### Creating MySQL database
 
