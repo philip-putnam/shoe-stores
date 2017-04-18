@@ -2,7 +2,7 @@
 
 #### _Silex application that allows user to create (add), read (view), update (edit), and delete shoe stores, shoes, and brands, 03/03/2017_
 
-#### By _**Philip Putnam**_
+#### By: _**Philip Putnam**_
 
 ## Description
 
@@ -15,7 +15,7 @@ This application will display current shoe stores, then upon user interaction wi
 * Navigate to the project directory, at the top level of the project directory in a terminal, type:
 * composer install --prefer-source --no-interaction
 OR simply:
-* composer install_
+* composer install
 * After composer has finished installation, navigate to the 'web' folder within the project directory using a terminal. Create a document '.htaccess' with the text content found in htaccess.txt
 * Begin a web server using MAMP or similar software, indicating the 'web' folder as root
 * In a compatible web browser, type in 'localhost:8888' where '8888' is the port number that you have indicated as your Apache port in MAMP or similar software
@@ -27,10 +27,10 @@ OR simply:
 * After cloning project from Github, open terminal and navigate to the top level of the project directory
 * in the terminal type:
 * \> /Applications/MAMP/Library/bin/mysql --host=localhost -uroot -proot
-* \> CREATE DATABASE shoes;_
-* \> USE shoes;_
-* \> CREATE TABLE shoes (id serial PRIMARY KEY, name VARCHAR (255), brand_id int);_
-* \> CREATE TABLE brands (id serial PRIMARY KEY, name VARCHAR (255));_
+* \> CREATE DATABASE shoes;
+* \> USE shoes;
+* \> CREATE TABLE shoes (id serial PRIMARY KEY, name VARCHAR (255), brand_id int);
+* \> CREATE TABLE brands (id serial PRIMARY KEY, name VARCHAR (255));
 * \> CREATE TABLE stores (id serial PRIMARY KEY, name VARCHAR (255), address VARCHAR (255), phone VARCHAR (255));
 * Open Apache server from either MAMP or navigating to localhost:<apache-port#>/MAMP/ , where <apache-port#> is the port number indicated for the Apache port in MAMP Preferences...
 * Click phpMyAdmin link, then click on the shoes database on the left of the screen
@@ -52,19 +52,19 @@ _No known bugs at this time_
 
 ## Support and contact details
 
-_Please e-mail Philip Putnam, at staplehead989@gmail.com for support with the webpage_
+_Please e-mail Philip Putnam, at putnamp989@gmail.com for support with the webpage_
 
 ## Technologies Used
 
-_HTML_
-_CSS_
-_PHP_
-_Bootstrap_
-_Atom_
-_Git_
-_GitHub_
-_MySQL_
-_Apache_
+_HTML_,
+_CSS_,
+_PHP_,
+_Bootstrap_,
+_Atom_,
+_Git_,
+_GitHub_,
+_MySQL_,
+_Apache_,
 
 ### License
 
